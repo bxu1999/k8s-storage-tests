@@ -3,7 +3,7 @@
 ocp_url: https://api.sre-rtp-3m9w-pwx-01.cp.fyre.ibm.com:6443
 ocp_username: kubeadmin
 ocp_password: <required>
-ocp_token: <required if user/password not available>
+ocp_token: not-used-here
 
 run_storage_readiness: true
 
