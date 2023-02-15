@@ -1,7 +1,7 @@
 
 # OCP Parameters
 ocp_url: https://<required>:6443
-ocp_username: <required>  # a cluster admin user
+ocp_username: kubeadmin
 ocp_password: <required>
 ocp_token: <required if user/password not available>
 
