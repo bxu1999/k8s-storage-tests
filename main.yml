@@ -1,6 +1,6 @@
 ---
 
-- hosts: api.sre-rtp-3m9w-pwx-01.cp.fyre.ibm.com
+- hosts: main
   gather_facts: no
 
   tasks:
