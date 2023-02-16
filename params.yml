@@ -10,9 +10,9 @@ run_storage_readiness: true
 ############################ STORAGE VALIDATION PARAMETERS START ########################
 
 # REQUIRED PARAMETERS
-storageClass_ReadWriteOnce: <required> # eg "ocs-storagecluster-ceph-rbd"
-storageClass_ReadWriteMany: <required>  # eg "ocs-storagecluster-cephfs"
-storage_validation_namespace: <required>
+storageClass_ReadWriteOnce: portworx-metastoredb-sc
+storageClass_ReadWriteMany: portworx-rwx-gp3-sc
+storage_validation_namespace: pxtest
 
 # OPTIONAL PARAMETERS
 prefix: "readiness"
