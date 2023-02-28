@@ -24,7 +24,7 @@ The following tests are performed:
 
   `python --version`
 
-  `pip --version`
+  `python -m pip --version`
 
 - Install Ansible 2.10.5 or later
 

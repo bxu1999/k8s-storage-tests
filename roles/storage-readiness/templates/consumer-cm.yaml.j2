@@ -5,6 +5,7 @@ metadata:
 data:
   consume.sh: |
     echo "Reading checksums"
+    # read the file by calculating its md5sum
     md5sum $FILE_NAME > /mnt/data/consumer.md5
     chk1=$(cat /mnt/data/producer.md5 | awk '{ print $1}')
     chk2=$(cat /mnt/data/consumer.md5 | awk '{ print $1}')
@@ -18,12 +19,14 @@ data:
       echo "File is identical"
     fi
   read-file.sh: |
+    # read the file by oding a tail -l...
     set -xe
     id
     echo "reading file /mnt/data/$FILE_NAME_GID"
     ls -la /mnt/data/$FILE_NAME_GID
     tail -1 /mnt/data/$FILE_NAME_GID
   update-file.sh: |
+    # modify the file by echo a string to the file and tail -l...
     set -xe
     id
     echo "writing to file /mnt/data/$FILE_NAME_GID"
@@ -31,6 +34,7 @@ data:
     echo "\nmodifying with user group $TEST_GID" >> /mnt/data/$FILE_NAME_GID
     tail -1 /mnt/data/$FILE_NAME_GID
   file-edit-uid.sh: |
+    # modify the file's uid
     set -ex
     id
     ls -la ${FILE_NAME}
