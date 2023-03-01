@@ -176,7 +176,8 @@ oc delete scc zz-fsgroup-scc
 
 OR
 
-you can use the provided cleanup script to generate all the commands for the needed cleanup
+you can use the provided cleanup script to generate all the commands for the needed cleanup 
+(Note that: if you see `No resources found in...`, then no cleanup is needed).
 
 ```
 USAGE:

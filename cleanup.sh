@@ -74,6 +74,7 @@ run() {
     echo "oc delete scc zz-fsgroup-scc --ignore-not-found"
     echo
   else
+    echo
     echo "oc delete job $(oc get jobs -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness) -n $NAMESPACE && \\"
     echo "oc delete cm $(oc get cm -n $NAMESPACE | awk '{ print $1 }' | grep "consumer-\|producer-") -n $NAMESPACE && \\"
     echo "oc delete pvc $(oc get pvc -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness) -n $NAMESPACE && \\"
