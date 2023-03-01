@@ -173,3 +173,12 @@ export STORAGE_VALIDATION_NS=<storage_validation_namespace>
 oc delete project $STORAGE_VALIDATION_NS
 oc delete scc zz-fsgroup-scc
 ```
+
+OR
+
+you can use the provided cleanup script to generate all the commands for the needed cleanup
+
+```
+USAGE:
+  cleanup.sh --namespace <namespace> [--delete-namespace]
+``` 
