@@ -62,20 +62,24 @@ run() {
   log info "running clean up for namespace ${NAMESPACE} and the namespace will${KEEP_NS} be deleted"
   log info "please run the following command in a terminal that has access to the cluster to clean up after the ansible playbooks"
 
-  echo
-  # cleanup the namespace scoped resources
-  for kind in "job" "pvc" "cm"; do
-    oc_delete_tpl="oc get ${kind} -n ${NAMESPACE} -o name | xargs -I % -n 1 oc delete % -n ${NAMESPACE}"  
-    echo "${oc_delete_tpl} && \\"
-  done
-
-  # delete cluster scoped resources
   if [ "${DELETE_NAMESPACE}" -eq "1" ]; then
-    echo "oc delete ns ${NAMESPACE} --ignore-not-found && \\"
-  fi
+    echo
+    # cleanup the namespace scoped resources
+    for kind in "job" "pvc" "cm"; do
+      oc_delete_tpl="oc get ${kind} -n ${NAMESPACE} -o name | xargs -I % -n 1 oc delete % -n ${NAMESPACE}"  
+      echo "${oc_delete_tpl} && \\"
+    done
 
-  echo "oc delete scc zz-fsgroup-scc --ignore-not-found"
-  echo
+    echo "oc delete ns ${NAMESPACE} --ignore-not-found && \\"
+    echo "oc delete scc zz-fsgroup-scc --ignore-not-found"
+    echo
+  else
+    echo "oc delete job $(oc get jobs -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness) -n $NAMESPACE && \\"
+    echo "oc delete cm $(oc get cm -n $NAMESPACE | awk '{ print $1 }' | grep "consumer-\|producer-") -n $NAMESPACE && \\"
+    echo "oc delete pvc $(oc get pvc -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness) -n $NAMESPACE && \\"
+    echo "oc delete scc zz-fsgroup-scc"
+    echo
+  fi
 
   log info "cleanup script finished with no errors"
 
