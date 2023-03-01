@@ -157,15 +157,16 @@ Delete the kuberbetes namespace that you created in [Setup](#setup), you can als
 resources in the namespace
 
 ```
-oc delete job $(oc get jobs -n <storage_validation_namespace> | awk '{ print $1 }') -n <storage_validation_namespace>
-oc delete cm $(oc get cm -n <storage_validation_namespace> | awk '{ print $1 }') -n <storage_validation_namespace>
-oc delete pvc $(oc get pvc -n <storage_validation_namespace> | awk '{ print $1 }') -n <storage_validation_namespace>
+export STORAGE_VALIDATION_NS=<storage_validation_namespace>
+oc delete job $(oc get jobs -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep -i readiness) -n $STORAGE_VALIDATION_NS
+oc delete cm $(oc get cm -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep "consumer-\|producer-") -n $STORAGE_VALIDATION_NS
+oc delete pvc $(oc get pvc -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep -i readiness) -n $STORAGE_VALIDATION_NS
 oc delete scc zz-fsgroup-scc
 ```
 
 OR
 
 ```
-oc delete project <storage_validation_namespace>
+oc delete project $STORAGE_VALIDATION_NS
 oc delete scc zz-fsgroup-scc
 ```
