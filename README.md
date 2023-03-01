@@ -158,6 +158,7 @@ resources in the namespace
 
 ```
 export STORAGE_VALIDATION_NS=<storage_validation_namespace>
+
 oc delete job $(oc get jobs -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep -i readiness) -n $STORAGE_VALIDATION_NS
 oc delete cm $(oc get cm -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep "consumer-\|producer-") -n $STORAGE_VALIDATION_NS
 oc delete pvc $(oc get pvc -n $STORAGE_VALIDATION_NS | awk '{ print $1 }' | grep -i readiness) -n $STORAGE_VALIDATION_NS
@@ -167,6 +168,8 @@ oc delete scc zz-fsgroup-scc
 OR
 
 ```
+export STORAGE_VALIDATION_NS=<storage_validation_namespace>
+
 oc delete project $STORAGE_VALIDATION_NS
 oc delete scc zz-fsgroup-scc
 ```
