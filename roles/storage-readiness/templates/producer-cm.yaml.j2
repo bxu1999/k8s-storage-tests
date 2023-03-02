@@ -35,7 +35,7 @@ data:
     echo "Lock acquired"
     pid=$$
     echo $pid 1>&200
-    sleep 60
+    sleep 90
     echo "Lock released"
   lock-file.c: |
     #include <stdlib.h>
