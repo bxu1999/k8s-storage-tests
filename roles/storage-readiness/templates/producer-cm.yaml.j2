@@ -28,7 +28,10 @@ data:
     # acquire a file lock using file descriptor 200, hold for 100 seconds, then release it.
     set -ex
     date
-    ls -l ${FILE_NAME}
+    if [ -e ${FILE_NAME} ]
+    then
+      ls -l ${FILE_NAME}
+    fi
     touch ${FILE_NAME}
     lock="${FILE_NAME}"
     exec 200>$lock
