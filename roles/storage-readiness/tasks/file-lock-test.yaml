@@ -70,7 +70,7 @@
     namespace: "{{ storage_validation_namespace }}"
     definition: "{{ lookup('template', item.name) | from_yaml }}"
     wait: yes
-    wait_timeout: 120
+    wait_timeout: 60
     wait_condition:
       type: Complete
       status: "True"
@@ -129,7 +129,7 @@
     namespace: "{{ storage_validation_namespace }}"
     definition: "{{ lookup('template', item.name) | from_yaml }}"
     wait: yes
-    wait_timeout: 120
+    wait_timeout: 60
     wait_condition:
       type: Complete
       status: "True"
