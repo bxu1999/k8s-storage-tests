@@ -43,7 +43,7 @@ data:
     echo "Lock acquired"
     date
     pid=$$
-    echo $pid 1>>&200
+    echo $pid 1>&200
     cat ${FILE_NAME}
     sleep 100
     echo "Lock released"
