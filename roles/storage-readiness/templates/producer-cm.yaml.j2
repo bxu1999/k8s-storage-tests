@@ -5,14 +5,18 @@ metadata:
 data:
   produce.sh: |
     echo "writing to file $FILE_NAME"
+    # write random contents to the file with a size of 800M
+    # also calculate its md5sum
     dd if=/dev/urandom of=$FILE_NAME bs=2M count=400 {{ options }}
     md5sum $FILE_NAME > /mnt/data/producer.md5
   produce-subpath.sh: |
     echo "writing to file $FILE_NAME"
+    # write a file of random contents to a file in a subdirectory with a size of 10M and calculate its md5sum
     mkdir -p /mnt/data/$DIR_NAME
     dd if=/dev/urandom of=/mnt/data/$DIR_NAME/$FILE_NAME bs=1M count=10 {{ options }}
     md5sum /mnt/data/$DIR_NAME/$FILE_NAME > /mnt/data/$DIR_NAME/producer.md5
   create-file-gid.sh: |
+    # by copying an existing from /home/cpuser to the mounted volume
     set -x
     id
     ls -la /home/cpuser/$FILE_NAME_GID
@@ -21,6 +25,8 @@ data:
     cp -p /home/cpuser/$FILE_NAME_GID /mnt/data/$FILE_NAME_GID
     ls -la /mnt/data/$FILE_NAME_GID
   file-lock.sh: |
+    #!/bin/bash
+    # acquire a file lock using file descriptor 200, hold for 60 seconds, then release it.
     set -ex
     touch ${FILE_NAME}
     lock="${FILE_NAME}"
@@ -71,6 +77,7 @@ data:
       }
     }
   lock-file.sh: |
+    # compile the lock-file.c and apply to the touched file to test file lock
     set -ex
     touch ${FILE_NAME}
     gcc -o /tmp/lock-file /tmp/lock-file.c
@@ -78,6 +85,7 @@ data:
     ecode=$?
     exit $ecode
   file-create-uid.sh: |
+    # touch a file and return its uid
     set -ex
     id
     touch ${FILE_NAME}
@@ -100,3 +108,4 @@ data:
     fi
     ecode=$?
     exit $ecode
+
