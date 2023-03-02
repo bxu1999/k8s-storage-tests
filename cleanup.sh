@@ -77,8 +77,10 @@ run() {
     echo
     oc_delete_tpl="oc get jobs -n $NAMESPACE -o name | grep -i readiness | xargs -I % -n 1 oc delete % -n ${NAMESPACE}"
     echo "${oc_delete_tpl} && \\"
-    echo "oc delete cm $(oc get cm -n $NAMESPACE | awk '{ print $1 }' | grep "consumer-\|producer-") -n $NAMESPACE && \\"
-    echo "oc delete pvc $(oc get pvc -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness) -n $NAMESPACE && \\"
+    oc_delete_tpl="oc get cm -n $NAMESPACE | awk '{ print $1 }' | grep "consumer-\|producer-" | xargs -I % -n 1 oc delete % -n ${NAMESPACE}"
+    echo "${oc_delete_tpl} && \\"
+    oc_delete_tpl="oc get pvc -n $NAMESPACE | awk '{ print $1 }' | grep -i readiness | xargs -I % -n 1 oc delete % -n ${NAMESPACE}"
+    echo "${oc_delete_tpl} && \\"
     echo "oc delete scc zz-fsgroup-scc"
     echo
   fi
