@@ -32,7 +32,7 @@
 
 - name: Wait few seconds
   pause:
-    seconds: 20
+    seconds: 30
 
 - name: Negative file lock test for {{ prefix }}
   k8s:
@@ -63,10 +63,6 @@
      - name: file-lock.yaml.j2
   vars:
     type: create-lock
-
-- name: Wait few seconds
-  pause:
-    seconds: 30
     
 - name: Positive lock test for {{ prefix }}
   k8s:
@@ -74,7 +70,7 @@
     namespace: "{{ storage_validation_namespace }}"
     definition: "{{ lookup('template', item.name) | from_yaml }}"
     wait: yes
-    wait_timeout: 60
+    wait_timeout: 120
     wait_condition:
       type: Complete
       status: "True"
@@ -133,7 +129,7 @@
     namespace: "{{ storage_validation_namespace }}"
     definition: "{{ lookup('template', item.name) | from_yaml }}"
     wait: yes
-    wait_timeout: 60
+    wait_timeout: 120
     wait_condition:
       type: Complete
       status: "True"
