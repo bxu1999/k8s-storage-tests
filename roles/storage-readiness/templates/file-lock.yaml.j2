@@ -15,8 +15,8 @@ spec:
         env:
           - name: FILE_NAME
             value: "/mnt/data/file-lock.dat"
-          - name: WAIT_FOR_LOCKFILE
-            value: {{ wait_for_lockfile }}
+          - name: LOCK_JOB_TYPE
+            value: {{ type }}
         command:
         - "/bin/sh"
         - "-ec"

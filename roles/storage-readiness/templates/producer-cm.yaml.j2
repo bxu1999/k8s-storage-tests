@@ -29,8 +29,8 @@ data:
     set -ex
     date
     id
-    echo ${WAIT_FOR_LOCKFILE} 
-    while ${WAIT_FOR_LOCKFILE} 
+    echo ${LOCK_JOB_TYPE} 
+    while [[ ${LOCK_JOB_TYPE} == "create-lock2" ]]
     do
       if [ -e ${FILE_NAME} ]
       then
