@@ -115,6 +115,16 @@
   vars:
     accessMode: ReadWriteMany
 
+- name: File locks fcntl tests {{ accessMode }}
+  block:
+  - name: File locks fcntl tests
+    include_tasks: file-lock-fcntl-test.yaml 
+  rescue:
+    - debug:
+        msg: "File locks fcntl tests - FAILED"
+  vars:
+    accessMode: ReadWriteMany
+    
 - name: File locks tests {{ accessMode }}
   block:
   - name: File locks tests
