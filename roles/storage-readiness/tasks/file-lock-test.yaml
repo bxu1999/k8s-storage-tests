@@ -48,6 +48,7 @@
      - name: file-lock.yaml.j2
   vars:
     type: create-lock2
+    wait_for_lockfile: true
 
 - name: Wait for lock to be released
   k8s:

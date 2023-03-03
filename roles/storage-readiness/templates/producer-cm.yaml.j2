@@ -29,6 +29,16 @@ data:
     set -ex
     date
     id
+    echo ${WAIT_FOR_LOCKFILE} 
+    while ${WAIT_FOR_LOCKFILE} 
+    do
+      if [ -e ${FILE_NAME} ]
+      then
+        exit
+      else
+        sleep 5
+      fi
+    done
     if [ -e ${FILE_NAME} ]
     then
       ls -l ${FILE_NAME}
