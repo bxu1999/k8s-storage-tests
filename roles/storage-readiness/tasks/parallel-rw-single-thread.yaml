@@ -97,4 +97,4 @@
     type: parallel-final
 
 - debug:
-    msg: "######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED for {{ accessMode }} #################################"
+    msg: "######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED FOR {{ accessMode }} #################################"
