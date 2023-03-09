@@ -23,12 +23,13 @@ The following tests are performed:
 - Ensure you have python 3.6 or later and [pip](https://pip.pypa.io/en/stable/installation/) 21.1.3 or later installed. We strongly
 recommend to use Pyhton 3.8 or 3.9 or later as 3.6 will cause some feature deprecation warning on its removal in newer Ansible versions.
 
-Examples below will be donw using Python 3.8 (adjust the commands to your Python versions accordingly)
+Examples below will be performed using Python 3.8 (adjust the commands to your Python versions accordingly)
 
 ```
 # install Python 3.8
 dnf install python38
 
+# confirm the Python version
 python3.8 --version`
 
 # check existinig pip version
@@ -152,19 +153,20 @@ Regardless of whether you run the Playbook or use the Container,
 on a successful run, you should see the following output:
 
 ```
- ######################## MOUNT TESTS PASSED FOR ReadWriteOnce Volume  #################################
- ######################## MOUNT TESTS PASSED FOR ReadWriteMany Volume  #################################
- ######################## SEQUENTIAL READ WRITE TEST PASSED FOR ReadWriteOnce Volume ###################
- ######################## SEQUENTIAL READ WRITE TEST PASSED FOR ReadWriteMany Volume ###################
- ######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED for ReadWriteOnce ##############
- ######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED for ReadWriteMany ##############
- ######################## PARALLEL READ WRTIE TEST PASSED FOR ReadWriteOnce ############################
- ######################## MULTI NODE PARALLEL READ WRTIE TEST PASSED FOR ReadWriteMany #################
- ######################## FILE UID TEST PASSED FOR ReadWriteMany Volume ################################
- ######################## FILE PERMISSIONS TEST PASSED FOR ReadWriteMany Volume ########################
- ######################## FILE PERMISSIONS TEST PASSED FOR ReadWriteOnce Volume ########################
- ######################## SUB PATH TEST PASSED FOR ReadWriteMany Volume ################################
- ######################### FILE LOCK TESTS PASSED FOR ReadWriteMany Volume #############################
+    "msg": "######################## MOUNT TESTS PASSED FOR ReadWriteOnce Volume  #################################"
+    "msg": "######################## MOUNT TESTS PASSED FOR ReadWriteMany Volume  #################################"
+    "msg": "######################## SEQUENTIAL READ WRITE TEST PASSED FOR ReadWriteOnce Volume #################################"
+    "msg": "######################## SEQUENTIAL READ WRITE TEST PASSED FOR ReadWriteMany Volume #################################"
+    "msg": "######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED FOR ReadWriteOnce #################################"
+    "msg": "######################## SINGLE THREAD PARALLEL READ WRITE TEST PASSED FOR ReadWriteMany #################################"
+    "msg": "######################## MULTI NODE PARALLEL READ WRTIE TEST PASSED FOR ReadWriteOnce #################################"
+    "msg": "######################## MULTI NODE PARALLEL READ WRTIE TEST PASSED FOR ReadWriteMany #################################"
+    "msg": "######################## FILE UID TEST PASSED FOR ReadWriteMany Volume #################################"
+    "msg": "######################## FILE PERMISSIONS TEST PASSED FOR ReadWriteMany Volume #################################"
+    "msg": "######################## FILE PERMISSIONS TEST PASSED FOR ReadWriteOnce Volume #################################"
+    "msg": "######################## SUB PATH TEST PASSED FOR ReadWriteMany Volume #################################"
+    "msg": "######################## FILE LOCK FCNTL TESTS PASSED FOR ReadWriteMany Volume #################################"
+    "msg": "######################## FILE LOCK TESTS PASSED FOR ReadWriteMany Volume #################################"
 ```
 
 ```
