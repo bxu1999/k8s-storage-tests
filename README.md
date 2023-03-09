@@ -20,19 +20,37 @@ The following tests are performed:
 
 ### Prerequisites
 
-- Ensure you have python 3.6 or later and [pip](https://pip.pypa.io/en/stable/installation/) 21.1.3 or later installed
+- Ensure you have python 3.6 or later and [pip](https://pip.pypa.io/en/stable/installation/) 21.1.3 or later installed. We strongly
+recommend to use Pyhton 3.8 or 3.9 or later as 3.6 will cause some feature deprecation warning on its removal in newer Ansible versions.
 
-  `python --version`
+Examples below will be donw using Python 3.8 (adjust the commands to your Python versions accordingly)
 
-  `python -m pip --version`
+```
+# install Python 3.8
+dnf install python38
+
+python3.8 --version`
+
+# check existinig pip version
+python3.8 -m pip --version
+
+# upgrade pip to the latest version
+python3.8 -m pip install --upgrade pip
+```
 
 - Install Ansible 2.10.5 or later
 
-  `pip install ansible==2.10.5`
+```
+# install the latest Ansible version
+python3.8 -m pip install ansible
+
+# or install a specific Asnible version
+python3.8 -m pip install ansible==2.10.5
+```
 
 - Install ansible k8s modules
 
-  `pip install openshift`
+  `python3.8 -m pip install ansible`
 
   `ansible-galaxy collection install operator_sdk.util`
 
@@ -54,6 +72,9 @@ The following tests are performed:
     ocp_password: <required>
     ocp_token: <required if user/password not available>
    ```
+   
+where you either modify the `ocp_username` and `ocp_password` entries OR just the `ocp_token`. Leave the entries that are not used intact.
+
 
  - Update the `params.yml` file for the `required` storage parameters
 
