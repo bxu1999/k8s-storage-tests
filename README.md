@@ -45,7 +45,7 @@ python3.8 -m pip install --upgrade pip
 # install the latest Ansible version
 python3.8 -m pip install ansible
 
-# or install a specific Asnible version
+# OR install a specific Asnible version like 2.10.5
 python3.8 -m pip install ansible==2.10.5
 ```
 
