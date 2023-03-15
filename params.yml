@@ -15,7 +15,7 @@ storageClass_ReadWriteMany: ocs-storagecluster-cephfs
 storage_validation_namespace: test-storage-odf
 #storageClass_ReadWriteOnce: portworx-metastoredb-sc
 #storageClass_ReadWriteMany: portworx-rwx-gp3-sc
-#storage_validation_namespace: pxtest
+#storage_validation_namespace: test-storage-pwx
 
 # OPTIONAL PARAMETERS
 prefix: "readiness"
