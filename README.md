@@ -51,7 +51,7 @@ python3.8 -m pip install ansible==2.10.5
 
 - Install ansible k8s modules
 
-  `python3.8 -m pip install ansible`
+  `python3.8 -m pip install openshift`
 
   `ansible-galaxy collection install operator_sdk.util`
 
