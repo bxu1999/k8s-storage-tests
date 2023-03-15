@@ -26,23 +26,23 @@ recommend to use Pyhton 3.8 or 3.9 or later as 3.6 will cause some feature depre
 Examples below will be performed using Python 3.8 (adjust the commands to your Python versions accordingly, e.g. replace 3.8 in the commands below with 3.9 for Python 3.9)
 
 ```
-# install Python 3.8
+# - install Python 3.8
 dnf install python38
 
-# confirm the Python version
+# - confirm the Python version
 python3.8 --version
 
-# check existinig pip version
+# - check existinig pip version
 python3.8 -m pip --version
 
-# upgrade pip to the latest version
+# - upgrade pip to the latest version
 python3.8 -m pip install --upgrade pip
 ```
 
 - Install Ansible 2.10.5 or later
 
 ```
-# install the latest Ansible version
+# - install the latest Ansible version
 python3.8 -m pip install ansible
 ```
 
