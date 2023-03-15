@@ -23,14 +23,14 @@ The following tests are performed:
 - Ensure you have python 3.6 or later and [pip](https://pip.pypa.io/en/stable/installation/) 21.1.3 or later installed. We strongly
 recommend to use Pyhton 3.8 or 3.9 or later as 3.6 will cause some feature deprecation warning on its removal in newer Ansible versions.
 
-Examples below will be performed using Python 3.8 (adjust the commands to your Python versions accordingly)
+Examples below will be performed using Python 3.8 (adjust the commands to your Python versions accordingly, e.g. use 3.9 for Python 3.9)
 
 ```
 # install Python 3.8
 dnf install python38
 
 # confirm the Python version
-python3.8 --version`
+python3.8 --version
 
 # check existinig pip version
 python3.8 -m pip --version
