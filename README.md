@@ -39,6 +39,9 @@ python3.8 -m pip --version
 python3.8 -m pip install --upgrade pip
 ```
 
+[!Note]
+Test line here.
+
 - Install Ansible 2.10.5 or later
 
 ```
