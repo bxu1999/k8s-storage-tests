@@ -18,6 +18,8 @@ The following tests are performed:
  - [SubPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath) test for volumes
  - [File Locking](https://pubs.opengroup.org/onlinepubs/9699919799/functions/fcntl.html) test
 
+>**Note that: if the tests in this storage readiness project are successful, you can perform further performance tests on the storage by following this companion project at https://github.com/IBM/k8s-storage-perf, and perform the tests provided there. It will give you a good assessment of the particular storage performance.**
+
 ### Prerequisites
 
 - Ensure you have python 3.6 or later and [pip](https://pip.pypa.io/en/stable/installation/) 21.1.3 or later installed. We strongly
